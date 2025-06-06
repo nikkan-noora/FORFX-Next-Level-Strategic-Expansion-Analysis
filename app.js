@@ -3,20 +3,38 @@ const dashboardData = {
   "global_metrics": {
     "total_addressable_market": "$726M",
     "weighted_average_growth": "9.5% to 11%",
-    "investment_requirement": "$2.25M",
+    "investment_requirement": "$2.4M",
     "projected_roi": "265%"
   },
   "competitive_landscape": [
-    {"company": "DNA Funded", "market_presence": "9.7/10", "challenge_fee": "$49", "max_funding": "Varies", "key_focus": "Market presence"},
-    {"company": "FTMO", "market_presence": "9.2/10", "challenge_fee": "$155", "max_funding": "$200K", "key_focus": "Market presence"},
-    {"company": "FundedNext", "market_presence": "8.8/10", "challenge_fee": "$59", "max_funding": "$4M", "key_focus": "Market presence"},
-    {"company": "OANDA Prop Trader", "market_presence": "8.5/10", "challenge_fee": "undefined", "max_funding": "undefined", "key_focus": "Regulatory credibility"},
-    {"company": "City Traders Imperium", "market_presence": "8.2/10", "challenge_fee": "undefined", "max_funding": "undefined", "key_focus": "Maximum profit sharing"}
+    { "company": "DNA Funded", "market_presence": "9.7/10", "challenge_fee": "$49", "max_funding": "Varies", "key_focus": "Market presence" },
+    { "company": "FTMO", "market_presence": "9.2/10", "challenge_fee": "$155", "max_funding": "$200K", "key_focus": "Market presence" },
+    { "company": "FundedNext", "market_presence": "8.8/10", "challenge_fee": "$59", "max_funding": "$4M", "key_focus": "Market presence" },
+    { "company": "OANDA Prop Trader", "market_presence": "8.5/10", "challenge_fee": "N/A", "max_funding": "N/A", "key_focus": "Regulatory credibility" },
+    { "company": "City Traders Imperium", "market_presence": "8.2/10", "challenge_fee": "N/A", "max_funding": "N/A", "key_focus": "Maximum profit sharing" }
   ],
   "investment_phases": [
-    {"phase": "Phase 1", "timeline": "3-4 months", "markets": "UAE & Singapore", "investment": "$750,000", "target": "1,000 funded traders"},
-    {"phase": "Phase 2", "timeline": "5 months", "markets": "Brazil", "investment": "$850,000", "target": "1,200 funded traders"},
-    {"phase": "Phase 3", "timeline": "6 months", "markets": "Switzerland", "investment": "$650,000", "target": "400 premium traders"}
+    {
+      "phase": "Phase 1: Parallel Test",
+      "timeline": "Months 1–4",
+      "markets": "Brazil, Mexico, Philippines, UAE (all regions included)",
+      "investment": "$900,000",
+      "target": "4,500–6,000 funded traders"
+    },
+    {
+      "phase": "Phase 2: Conversion",
+      "timeline": "Months 5–9",
+      "markets": "Singapore & UAE",
+      "investment": "$800,000",
+      "target": "2,500–3,500 funded traders"
+    },
+    {
+      "phase": "Phase 3: Scale",
+      "timeline": "Months 10–18",
+      "markets": "Colombia, Philippines, Indonesia, Switzerland",
+      "investment": "$700,000",
+      "target": "3,000–4,000 funded traders"
+    }
   ],
   "revenue_projections": [
     { "month": "Month 1", "revenue": 0 },
@@ -28,7 +46,7 @@ const dashboardData = {
     { "month": "Month 18", "revenue": 13200 },
     { "month": "Month 21", "revenue": 17200 },
     { "month": "Month 24", "revenue": 22400 }
-   ]
+  ]
 };
 
 // FORFX Brand Colors
