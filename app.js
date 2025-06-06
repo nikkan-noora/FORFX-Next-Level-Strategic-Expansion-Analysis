@@ -2,7 +2,7 @@
 const dashboardData = {
   "global_metrics": {
     "total_addressable_market": "$726M",
-    "weighted_average_growth": "17.6%",
+    "weighted_average_growth": "9.5% to 11%",
     "investment_requirement": "$2.25M",
     "projected_roi": "265%"
   },
