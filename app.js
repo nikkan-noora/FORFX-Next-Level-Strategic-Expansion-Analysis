@@ -18,17 +18,17 @@ const dashboardData = {
     {"phase": "Phase 2", "timeline": "5 months", "markets": "Brazil", "investment": "$850,000", "target": "1,200 funded traders"},
     {"phase": "Phase 3", "timeline": "6 months", "markets": "Switzerland", "investment": "$650,000", "target": "400 premium traders"}
   ],
- "revenue_projections": [
-  {"month": "Month 1", "revenue": 0},
-  {"month": "Month 3", "revenue": 350000},
-  {"month": "Month 6", "revenue": 1_400_000},
-  {"month": "Month 9", "revenue": 3_100_000},
-  {"month": "Month 12", "revenue": 6_200_000},
-  {"month": "Month 15", "revenue": 9_400_000},
-  {"month": "Month 18", "revenue": 13_200_000},
-  {"month": "Month 21", "revenue": 17_200_000},
-  {"month": "Month 24", "revenue": 22_400_000}
- ]
+  "revenue_projections": [
+    { "month": "Month 1", "revenue": 0 },
+    { "month": "Month 3", "revenue": 350 },
+    { "month": "Month 6", "revenue": 1400 },
+    { "month": "Month 9", "revenue": 3100 },
+    { "month": "Month 12", "revenue": 6200 },
+    { "month": "Month 15", "revenue": 9400 },
+    { "month": "Month 18", "revenue": 13200 },
+    { "month": "Month 21", "revenue": 17200 },
+    { "month": "Month 24", "revenue": 22400 }
+   ]
 };
 
 // FORFX Brand Colors
