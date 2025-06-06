@@ -1,7 +1,7 @@
 // FORFX Strategic Expansion Analysis Dashboard
 const dashboardData = {
   "global_metrics": {
-    "total_addressable_market": "$18.1B",
+    "total_addressable_market": "$726M",
     "weighted_average_growth": "17.6%",
     "investment_requirement": "$2.25M",
     "projected_roi": "265%"
