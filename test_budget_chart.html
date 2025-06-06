@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORFX - Global Market Research & Expansion Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* FORFX Brand Colors - Exact Implementation */
+        :root {
+          /* FORFX Brand Colors */
+          --bg-primary: #1e1329;
+          --color-primary: #8d40bc;
+          --color-secondary: #9f65dc;
+          --text-primary: #d1cbc7;
+          --text-secondary: rgba(209, 203, 199, 0.8);
+          --card-bg: rgba(141, 64, 188, 0.1);
+          --border-color: rgba(159, 101, 220, 0.3);
+          --hover-bg: rgba(141, 64, 188, 0.2);
+          --shadow-color: rgba(141, 64, 188, 0.2);
+        }
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: 'Poppins', sans-serif;
+          background-color: var(--bg-primary);
+          color: var(--text-primary);
+          line-height: 1.6;
+          overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+          background: var(--bg-primary);
+          border-bottom: 1px solid var(--border-color);
+          padding: 1rem 0;
+          position: fixed;
+          top: 0;
+          width: 100%;
+          z-index: 1000;
+          backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 2rem;
+        }
+
+        .nav-brand h1 {
+          color: var(--color-primary);
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 0.25rem;
+        }
+
+        .nav-subtitle {
+          color: var(--text-secondary);
+          font-size: 0.9rem;
+          font-weight: 400;
+        }
+
+        .nav-menu {
+          display: flex;
+          gap: 2rem;
+          flex-wrap: wrap;
+        }
+
+        .nav-link {
+          color: var(--text-secondary);
+          text-decoration: none;
+          padding: 0.5rem 1rem;
+          border-radius: 8px;
+          transition: all 0.3s ease;
+          font-weight: 500;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+          color: var(--text-primary);
+          background: var(--hover-bg);
+          transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+          margin-top: 100px;
+          padding: 2rem;
+          max-width: 1400px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .section {
+          display: none;
+          animation: fadeIn 0.5s ease-in;
+        }
+
+        .section.active {
+          display: block;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+          text-align: center;
+          margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+          color: var(--color-primary);
+          font-size: 2.5rem;
+          margin-bottom: 1rem;
+        }
+
+        .section-header p {
+          color: var(--text-secondary);
+          font-size: 1.1rem;
+        }
+
+        /* Budget Chart Container - Fixed Styling */
+        .budget-chart-container {
+          background: var(--card-bg);
+          border: 1px solid var(--border-color);
+          border-radius: 12px;
+          padding: 2.5rem;
+          box-shadow: 0 4px 15px var(--shadow-color);
+          backdrop-filter: blur(10px);
+          margin-top: 3rem;
+          min-height: 500px;
+        }
+
+        .budget-chart-container h3 {
+          font-size: 1.5rem;
+          color: var(--color-secondary);
+          margin-bottom: 2rem;
+          text-align: center;
+          font-weight: 600;
+        }
+
+        #budgetChart {
+          max-height: 400px !important;
+          width: 100% !important;
+        }
+
+        /* Timeline Cards */
+        .roadmap-timeline {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+          gap: 2rem;
+          margin-bottom: 4rem;
+        }
+
+        .phase-card {
+          background: var(--card-bg);
+          border: 1px solid var(--border-color);
+          border-radius: 12px;
+          padding: 2.5rem;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 15px var(--shadow-color);
+          backdrop-filter: blur(10px);
+        }
+
+        .phase-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 25px var(--shadow-color);
+          border-color: var(--color-secondary);
+        }
+
+        .phase-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 1.5rem;
+        }
+
+        .phase-title {
+          font-size: 1.75rem;
+          font-weight: 700;
+          color: var(--color-primary);
+        }
+
+        .phase-period {
+          font-size: 0.9rem;
+          color: var(--text-secondary);
+          font-weight: 500;
+        }
+
+        .phase-card h4 {
+          font-size: 1.375rem;
+          color: var(--color-secondary);
+          margin-bottom: 1.25rem;
+          font-weight: 600;
+        }
+
+        .phase-countries,
+        .phase-budget {
+          font-size: 0.95rem;
+          color: var(--text-secondary);
+          margin-bottom: 0.75rem;
+          font-weight: 500;
+        }
+
+        .phase-benefits {
+          list-style: none;
+          margin-top: 1.5rem;
+        }
+
+        .phase-benefits li {
+          padding: 0.5rem 0;
+          color: var(--text-primary);
+          position: relative;
+          padding-left: 1.5rem;
+          font-weight: 500;
+        }
+
+        .phase-benefits li::before {
+          content: "▶";
+          position: absolute;
+          left: 0;
+          color: var(--color-primary);
+          font-size: 0.75rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+          .nav-container {
+            flex-direction: column;
+            gap: 1rem;
+          }
+
+          .nav-menu {
+            justify-content: center;
+            gap: 1rem;
+          }
+
+          .main-content {
+            padding: 1rem;
+          }
+
+          .roadmap-timeline {
+            grid-template-columns: 1fr;
+          }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>FORFX</h1>
+                <span class="nav-subtitle">Global Market Research & Expansion Dashboard</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#roadmap" class="nav-link active">Implementation Roadmap</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Implementation Roadmap Section -->
+        <section id="roadmap" class="section active">
+            <div class="section-header">
+                <h2>Implementation Roadmap</h2>
+                <p>Strategic phased approach for market entry and expansion</p>
+            </div>
+            <div class="roadmap-timeline">
+                <div class="phase-card">
+                    <div class="phase-header">
+                        <div class="phase-title">Phase 1</div>
+                        <div class="phase-period">Q1-Q2 2025</div>
+                    </div>
+                    <h4>Quick Market Validation</h4>
+                    <div class="phase-countries">Countries: UAE, Mexico</div>
+                    <div class="phase-budget">Budget: 25%</div>
+                    <ul class="phase-benefits">
+                        <li>Fast implementation</li>
+                        <li>Low regulatory risk</li>
+                        <li>Market testing</li>
+                    </ul>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-header">
+                        <div class="phase-title">Phase 2</div>
+                        <div class="phase-period">Q3-Q4 2025</div>
+                    </div>
+                    <h4>High-Value Market Entry</h4>
+                    <div class="phase-countries">Countries: India, Kenya</div>
+                    <div class="phase-budget">Budget: 40%</div>
+                    <ul class="phase-benefits">
+                        <li>Large market size</li>
+                        <li>High growth potential</li>
+                        <li>Strategic positioning</li>
+                    </ul>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-header">
+                        <div class="phase-title">Phase 3</div>
+                        <div class="phase-period">2026</div>
+                    </div>
+                    <h4>Regional Consolidation</h4>
+                    <div class="phase-countries">Countries: Indonesia, Malaysia, Vietnam</div>
+                    <div class="phase-budget">Budget: 35%</div>
+                    <ul class="phase-benefits">
+                        <li>ASEAN presence</li>
+                        <li>Market diversification</li>
+                        <li>Scale advantages</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="budget-chart-container">
+                <h3>Budget Allocation by Region</h3>
+                <canvas id="budgetChart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // FORFX Brand Colors
+        const colors = {
+          primary: '#8d40bc',
+          secondary: '#9f65dc',
+          tertiary: '#d1cbc7',
+          background: '#1e1329',
+          cardBg: 'rgba(141, 64, 188, 0.1)',
+          borderColor: 'rgba(159, 101, 220, 0.3)',
+          textPrimary: '#d1cbc7',
+          textSecondary: 'rgba(209, 203, 199, 0.8)',
+          gradients: [
+            '#8d40bc', '#9f65dc', '#b584e6', '#cba3f0'
+          ]
+        };
+
+        // Chart.js default configurations
+        Chart.defaults.color = colors.textPrimary;
+        Chart.defaults.backgroundColor = colors.primary;
+        Chart.defaults.borderColor = colors.borderColor;
+
+        // Create budget chart with proper error handling
+        function createBudgetChart() {
+          console.log('Creating budget chart...');
+
+          const canvas = document.getElementById('budgetChart');
+          if (!canvas) {
+            console.error('Budget chart canvas not found!');
+            return;
+          }
+
+          console.log('Canvas found, creating chart...');
+
+          const ctx = canvas.getContext('2d');
+          if (!ctx) {
+            console.error('Could not get 2D context!');
+            return;
+          }
+
+          const budgetData = {
+            'Asia Pacific': 40,
+            'Latin America': 25,
+            'Europe': 20,
+            'Africa': 15
+          };
+
+          try {
+            new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                labels: Object.keys(budgetData),
+                datasets: [{
+                  data: Object.values(budgetData),
+                  backgroundColor: colors.gradients,
+                  borderColor: colors.primary,
+                  borderWidth: 2
+                }]
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    position: 'bottom',
+                    labels: {
+                      color: colors.textPrimary,
+                      font: { family: 'Poppins', size: 14 },
+                      padding: 20,
+                      usePointStyle: true
+                    }
+                  },
+                  tooltip: {
+                    backgroundColor: colors.cardBg,
+                    titleColor: colors.textPrimary,
+                    bodyColor: colors.textPrimary,
+                    borderColor: colors.borderColor,
+                    borderWidth: 1,
+                    cornerRadius: 8,
+                    callbacks: {
+                      label: function(context) {
+                        return `${context.label}: ${context.parsed}%`;
+                      }
+                    }
+                  }
+                }
+              }
+            });
+            console.log('Budget chart created successfully!');
+          } catch (error) {
+            console.error('Error creating budget chart:', error);
+          }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+          console.log('DOM loaded, initializing charts...');
+          // Add a small delay to ensure everything is ready
+          setTimeout(createBudgetChart, 500);
+        });
+
+        // Fallback initialization
+        window.addEventListener('load', function() {
+          console.log('Window loaded, checking charts...');
+          // Check if chart was created, if not try again
+          setTimeout(function() {
+            const canvas = document.getElementById('budgetChart');
+            if (canvas && !canvas.chart) {
+              console.log('Chart not found, creating again...');
+              createBudgetChart();
+            }
+          }, 1000);
+        });
+    </script>
+</body>
+</html>
