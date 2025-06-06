@@ -341,67 +341,79 @@
     </section>
 
         <!-- Investment Analysis Section -->
-        <section id="investment" class="section">
-            <div class="section-header">
-                <h2>Investment Opportunity Analysis</h2>
-                <p>Financial projections and ROI analysis across implementation phases</p>
+<section id="investment" class="section">
+    <div class="section-header">
+        <h2>Investment Opportunity Analysis</h2>
+        <p>Financial projections and ROI analysis across implementation phases</p>
+    </div>
+    <div class="investment-grid">
+
+        <!-- Updated Phase Plan -->
+        <div class="phases-container">
+            <h3>Three-Phase Investment Plan</h3>
+            <div class="phases-grid">
+
+                <!-- Phase 1 -->
+                <div class="phase-card">
+                    <div class="phase-number">Phase 1</div>
+                    <div class="phase-timeline">Months 1–4</div>
+                    <div class="phase-markets">Brazil, Mexico, Philippines, UAE (Test All)</div>
+                    <div class="phase-investment">$900,000</div>
+                    <div class="phase-target">4,500–6,000 funded traders</div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="phase-card">
+                    <div class="phase-number">Phase 2</div>
+                    <div class="phase-timeline">Months 5–9</div>
+                    <div class="phase-markets">Singapore & UAE (Conversion)</div>
+                    <div class="phase-investment">$800,000</div>
+                    <div class="phase-target">2,500–3,500 funded traders</div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="phase-card">
+                    <div class="phase-number">Phase 3</div>
+                    <div class="phase-timeline">Months 10–18</div>
+                    <div class="phase-markets">Colombia, Philippines, Indonesia, Switzerland</div>
+                    <div class="phase-investment">$700,000</div>
+                    <div class="phase-target">3,000–4,000 funded traders</div>
+                </div>
+
             </div>
-            <div class="investment-grid">
-                <div class="phases-container">
-                    <h3>Three-Phase Investment Plan</h3>
-                    <div class="phases-grid">
-                        <div class="phase-card">
-                            <div class="phase-number">Phase 1</div>
-                            <div class="phase-timeline">3-4 months</div>
-                            <div class="phase-markets">UAE & Singapore</div>
-                            <div class="phase-investment">$750,000</div>
-                            <div class="phase-target">1,000 funded traders</div>
-                        </div>
-                        <div class="phase-card">
-                            <div class="phase-number">Phase 2</div>
-                            <div class="phase-timeline">5 months</div>
-                            <div class="phase-markets">Brazil</div>
-                            <div class="phase-investment">$850,000</div>
-                            <div class="phase-target">1,200 funded traders</div>
-                        </div>
-                        <div class="phase-card">
-                            <div class="phase-number">Phase 3</div>
-                            <div class="phase-timeline">6 months</div>
-                            <div class="phase-markets">Switzerland</div>
-                            <div class="phase-investment">$650,000</div>
-                            <div class="phase-target">400 premium traders</div>
-                        </div>
+        </div>
+
+        <!-- LEAVE THIS SECTION UNCHANGED -->
+        <div class="charts-grid">
+            <div class="chart-container">
+                <h3>24-Month Revenue Projections</h3>
+                <canvas id="revenueChart"></canvas>
+            </div>
+            <div class="cac-analysis">
+                <h3>CAC Analysis</h3>
+                <div class="cac-metrics">
+                    <div class="cac-metric">
+                        <span class="cac-label">Blended CAC</span>
+                        <span class="cac-value">$85</span>
+                    </div>
+                    <div class="cac-metric">
+                        <span class="cac-label">LTV</span>
+                        <span class="cac-value">$2,400</span>
+                    </div>
+                    <div class="cac-metric">
+                        <span class="cac-label">Payback Period</span>
+                        <span class="cac-value">4.2 months</span>
+                    </div>
+                    <div class="cac-metric">
+                        <span class="cac-label">Retention</span>
+                        <span class="cac-value">78%</span>
                     </div>
                 </div>
-                <div class="charts-grid">
-                    <div class="chart-container">
-                        <h3>24-Month Revenue Projections</h3>
-                        <canvas id="revenueChart"></canvas>
-                    </div>
-                    <div class="cac-analysis">
-                        <h3>CAC Analysis</h3>
-                        <div class="cac-metrics">
-                            <div class="cac-metric">
-                                <span class="cac-label">Blended CAC</span>
-                                <span class="cac-value">$85</span>
-                            </div>
-                            <div class="cac-metric">
-                                <span class="cac-label">LTV</span>
-                                <span class="cac-value">$2,400</span>
-                            </div>
-                            <div class="cac-metric">
-                                <span class="cac-label">Payback Period</span>
-                                <span class="cac-value">4.2 months</span>
-                            </div>
-                            <div class="cac-metric">
-                                <span class="cac-label">Retention</span>
-                                <span class="cac-value">78%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-        </section>
+        </div>
+
+    </div>
+</section>
 
         <!-- Regulatory Matrix Section -->
         <section id="regulatory" class="section">
